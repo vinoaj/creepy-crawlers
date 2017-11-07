@@ -1,9 +1,15 @@
+import pandas as pd
 from PIL import Image
 from selenium import webdriver
 
 options = webdriver.ChromeOptions()
 options.add_argument('headless')
 driver = webdriver.Chrome(chrome_options=options)
+
+
+def read_csv(csv_path):
+    df = pd.read_csv(csv_path)
+
 
 
 def image_crop(img_path, width, height):
