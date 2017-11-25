@@ -4,10 +4,12 @@ from PIL import Image
 from selenium import webdriver
 from urllib.parse import urlparse
 
-driver = get_driver()
+driver = None
 
 
 def main(csv_path):
+    # driver = get_driver()
+    # print(driver)
     process_csv(csv_path)
     driver.quit()
 
@@ -27,6 +29,7 @@ def process_csv(csv_path):
 
 
 def generate_screenshot(url):
+    # print(driver)
     driver.get(url)
     png = driver.get_screenshot_as_png()
 
@@ -61,5 +64,5 @@ def image_resize(img_path, width, height):
 
 
 if __name__ == '__main__':
-    # generate_filename('/portfolio/articles/')
+    driver = get_driver()
     main('URLs.csv')
